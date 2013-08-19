@@ -10,10 +10,10 @@ class TestDestinationListener < MiniTest::Unit::TestCase
   end
 
   def test_parse_destination_stream
-    FileUtils.rm_r output_dir
+    output_dir = File.join('/', 'tmp', 'test_parse_destination_stream' + $$.to_s)
+    FileUtils.rm_r(output_dir) if File.exists?(output_dir)
     taxonomy   = Taxonomy.new []
     xml_file   = File.join(@sample_dir, 'destinations.xml')
-    output_dir = File.join('/', 'tmp', 'test_parse_destination_stream' + $$.to_s)
     listener   = DestinationListener.new(taxonomy, output_dir)
     REXML::Document.parse_stream(File.new(xml_file), listener)
     assert File.exists?(File.join(output_dir, '1-test1.html')), 'first destination file exists'
