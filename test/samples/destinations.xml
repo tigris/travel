@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<destinations>
+  <destination atlas_id="1" title="test1" title-ascii="test1"/>
+  <destination atlas_id="2" title="test2" title-ascii="test2"/>
+</destinations>

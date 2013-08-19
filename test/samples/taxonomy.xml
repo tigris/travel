@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<taxonomies>
+  <taxonomy>
+    <taxonomy_name>World</taxonomy_name>
+    <node atlas_node_id="1">
+      <node_name>level1</node_name>
+      <node atlas_node_id="2">
+        <node_name>level2</node_name>
+        <node atlas_node_id="3">
+          <node_name>level3</node_name>
+        </node>
+      </node>
+    </node>
+  </taxonomy>
+</taxonomies>

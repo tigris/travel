@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<destination atlas_id="1" title="Danialville" title-ascii="Danialville">
+  <history>
+    <history>
+      <overview>
+        <![CDATA[test history]]>
+      </overview>
+    </history>
+  </history>
+  <introductory>
+    <introduction>
+      <overview>
+        <![CDATA[test introduction]]>
+      </overview>
+    </introduction>
+  </introductory>
+  <transport>
+    <getting_around>
+      <overview>
+        <![CDATA[test transport line 1]]>
+      </overview>
+    </getting_around>
+    <getting_there_and_away>
+      <overview>
+        <![CDATA[test transport line 2]]>
+      </overview>
+    </getting_there_and_away>
+  </transport>
+  <weather>
+    <when_to_go>
+      <overview>
+        <![CDATA[test weather]]>
+      </overview>
+    </when_to_go>
+  </weather>
+</destination>
