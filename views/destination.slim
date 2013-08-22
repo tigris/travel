@@ -23,9 +23,9 @@ html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"
               ul
                 - destination.parents.each do |parent|
                   li
-                    a href="http://atlas.devint.lpo/ui/places" #{parent.name}
+                    a href="#{parent.to_param}.html" #{parent.name}
                 li
-                  a href="http://atlas.devint.lpo/ui/places" #{destination.name}
+                  = destination.name
       #main
         .block
           .secondary-navigation
