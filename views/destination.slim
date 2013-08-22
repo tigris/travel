@@ -13,7 +13,7 @@ html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"
         #flash-messages.flash-messages style="overflow: visible; opacity: 1; display: none;"
       #header
         #logo
-        h1 Lonely Planet: #{destination.name}
+        h1 Lonely Planet: #{name}
     #wrapper
       #sidebar
         .block
@@ -21,23 +21,23 @@ html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"
           .content
             .inner
               ul#navigation
-                == Slim::Template.new('views/_navigation_entry.slim').render(destination.parents.size > 0 ? destination.parents.first : destination, current: destination)
+                == Slim::Template.new('views/_navigation_entry.slim').render(parents.size > 0 ? parents.first : self, current: self)
       #main
         .block
           .secondary-navigation
             ul
               li.first
-                a href="http://atlas.devint.lpo/ui/places" #{destination.name}
+                a href="http://atlas.devint.lpo/ui/places" #{name}
             .clear
           .content
             .inner
               - %w(introduction history weather transport).each do |section|
                 div class=section
                   h4= section.capitalize
-                  - if destination.send(section).to_s == ''
+                  - if send(section).to_s == ''
                     p No information available.
                   - else
-                    - destination.send(section).split("\n").each do |line|
+                    - send(section).split("\n").each do |line|
                       p= line
   #dragHelper style="overflow: hidden; position: absolute; display: none; cursor: move; list-style-type: none; list-style-image: none; list-style-position: outside;"
   div style="position: absolute; height: 1px; width: 1px; top: -1000px; left: -1000px;"

@@ -24,7 +24,7 @@ class Destination
     FileUtils.mkdir_p(directory)
     template ||= DEFAULT_TEMPLATE
     File.open(File.join(directory, to_param + '.html'), 'w') do |f|
-      f.puts template.render('foo', destination: self)
+      f.puts template.render(self)
     end
   end
 
