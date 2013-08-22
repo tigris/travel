@@ -20,7 +20,7 @@ html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"
           h3 Navigation
           .content
             .inner
-              ul
+              ul#navigation
                 == Slim::Template.new('views/_navigation_entry.slim').render(destination.parents.size > 0 ? destination.parents.first : destination, current: destination)
       #main
         .block

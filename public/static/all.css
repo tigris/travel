@@ -2350,3 +2350,7 @@ div.delete_place fieldset li {
 .next_state_link {
 	margin:10px;
 }
+
+ul#navigation li {
+  margin-left: 15px;
+}
