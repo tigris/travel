@@ -14,5 +14,7 @@ class TestTaxonomy < MiniTest::Unit::TestCase
     assert_equal 'level1', taxonomy.destinations.first.name
     assert_equal 3, taxonomy.destinations.size
     assert_equal 2, taxonomy.destinations.last.parents.size
+    assert_equal 1, taxonomy.destinations.first.children.size
+    assert_equal 1, taxonomy.destinations.first.children.first.children.size
   end
 end

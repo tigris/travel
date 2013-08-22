@@ -21,11 +21,7 @@ html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"
           .content
             .inner
               ul
-                - destination.parents.each do |parent|
-                  li
-                    a href="#{parent.to_param}.html" #{parent.name}
-                li
-                  = destination.name
+                == Slim::Template.new('views/_navigation_entry.slim').render(destination.parents.size > 0 ? destination.parents.first : destination, current: destination)
       #main
         .block
           .secondary-navigation

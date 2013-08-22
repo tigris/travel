@@ -1,0 +1,9 @@
+li *{class: current.id == id ? 'current' : nil}
+  - if current.id == id
+    = name
+  - else
+    a href="#{to_param}.html" #{name}
+  - if children.size > 0
+    ul
+      - children.each do |child|
+        == Slim::Template.new('views/_navigation_entry.slim').render(child, current: current)

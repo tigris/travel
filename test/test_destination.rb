@@ -18,6 +18,24 @@ class TestDestination < MiniTest::Unit::TestCase
     assert 2 == level3.parent.id, 'parents are in the correct order'
   end
 
+  def test_children
+    level1   = Destination.new('level1',   1)
+    level2_1 = Destination.new('level2_1', 2, level1)
+    level2_2 = Destination.new('level2_2', 3, level1)
+    level3   = Destination.new('level3',   4, level2_1)
+    assert_equal 2, level1.children.size
+    assert_equal 1, level2_1.children.size
+    assert_equal 0, level3.children.size
+  end
+
+  def test_duplicate_child
+    level1 = Destination.new('level1', 1)
+    level2 = Destination.new('level2', 2, level1)
+    assert_equal 1, level1.children.size
+    Destination.new('level2', 2, level1)
+    assert_equal 1, level1.children.size
+  end
+
   def test_create_from_xml
     sample_file = File.join(@sample_dir, 'destination.xml')
     destination = Destination.create_from_xml(File.read(sample_file))

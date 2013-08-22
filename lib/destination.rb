@@ -3,15 +3,17 @@ require 'fileutils'
 require 'slim'
 
 class Destination
-  attr_accessor :id,  :name, :parent, :history, :transport, :weather, :introduction
+  attr_accessor :id,  :name, :history, :transport, :weather, :introduction, :children
+  attr_reader   :parent
   private       :id=, :name=
 
   DEFAULT_TEMPLATE = Slim::Template.new('views/destination.slim', pretty: false, format: :xhtml, streaming: true)
 
   def initialize name, id, parent = nil
-    self.name   = name
-    self.id     = id
-    self.parent = parent
+    self.name     = name
+    self.id       = id
+    self.children = []
+    self.parent   = parent
   end
 
   def to_param
@@ -34,6 +36,11 @@ class Destination
       parents << parent
     end
     parents.reverse
+  end
+
+  def parent= destination
+    @parent = destination
+    destination.children << self if destination and !destination.children.any?{|child| child.id == id }
   end
 
   class << self
